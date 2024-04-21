@@ -1,0 +1,15 @@
+{
+
+    "postgres_host": "10.0.0.11",
+  
+    "postgres_port": 5432,
+  
+    "postgres_database": "app",
+  
+    "postgres_username": "root",
+  
+    "postgres_password": "1234",
+  
+    "postgres_schema": "mytapname"
+  
+  }

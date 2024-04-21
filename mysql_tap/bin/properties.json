@@ -1,0 +1,43 @@
+{
+    "streams": [
+      {
+        "tap_stream_id": "app-a",
+        "table_name": "a",
+        "schema": {
+          "properties": {
+            "id": {
+              "inclusion": "available",
+              "minimum": -2147483648,
+              "maximum": 2147483647,
+              "type": ["null", "integer"]
+            }
+          },
+          "type": "object"
+        },
+        "stream": "a",
+        "metadata": [
+          {
+            "breadcrumb": [],
+            "metadata": {
+              "row-count": 3,
+              "table-key-properties": [],
+              "database-name": "app",
+              "selected-by-default": false,
+              "is-view": false,
+              "selected": true,
+              "replication-method": "FULL_TABLE"
+            }
+          },
+          {
+            "breadcrumb": ["properties", "id"],
+            "metadata": {
+              "selected-by-default": true,
+              "sql-datatype": "int(11)",
+              "selected": true
+            }
+          }
+        ]
+      }
+    ]
+  }
+  
