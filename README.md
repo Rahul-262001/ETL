@@ -1,16 +1,4 @@
-# important links
-``` url
-https://blog.panoply.io/etl-with-singer-a-tutorial
 
-```
-
-``` url
-https://meltano.com/
-```
-
-``` url
-https://docs.meltano.com/getting-started/part1
-```
 # json files
 
 ## config.json for sql tap
@@ -93,3 +81,18 @@ https://docs.meltano.com/getting-started/part1
 ```
 # note 
 ## python venv is compulsary for this to work
+
+
+# important links
+``` url
+https://blog.panoply.io/etl-with-singer-a-tutorial
+
+```
+
+``` url
+https://meltano.com/
+```
+
+``` url
+https://docs.meltano.com/getting-started/part1
+```
