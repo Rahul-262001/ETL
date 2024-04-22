@@ -24,7 +24,7 @@ https://docs.meltano.com/getting-started/part1
     "user": "root",
   
     "password": "root"
-  
+  }
 ```
 ## properties.json for sql tap
 ``` json
