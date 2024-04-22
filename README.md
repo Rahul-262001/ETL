@@ -79,6 +79,17 @@
   
   }
 ```
+# commands
+
+``` cmd
+tap-mysql -c config.json --properties properties.json
+```
+
+``` cmd
+mysql_tap/bin/tap-mysql -c mysql_tap/bin/config.json --properties mysql_tap/bin/properties.json | postgresql_target/bin/target-postgres -c postgresql_target/bin/config.json >> state.json
+```
+
+
 # note 
 ## python venv is compulsary for this to work
 
