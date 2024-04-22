@@ -21,7 +21,7 @@
 * properties.json must be a dictionary not a list in the
 * ***Note***
 * * In the official documentation it is suggested to use a list  converted into json but doing so causes a error
-  * ! to fix that we have to convert that list into a dictionary adding { "streams": at the beginning and closing it at the end.
+  * to fix that we have to convert that list into a dictionary adding { "streams": at the beginning and closing it at the end.
   * for example
   * ``` json
     {
