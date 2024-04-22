@@ -106,7 +106,21 @@ tap-mysql --config config.json --discover > catalog.json
 ``` cmd
 tap-mysql --config config.json --properties properties.json
 ```
+### Sample output
+``` json
+{'streams': [{'tap_stream_id': 'example_db-animals', 'table_name': 'animals', 'schema': {'type': 'object', 'properties': {'name': {'inclusion': 'available', 'type': ['null', 'string'], 'maxLength': 255}, 'id': {'inclusion': 'automatic', 'minimum': -2147483648, 'maximum': 2147483647, 'type': ['null', 'integer']}, 'likes_getting_petted': {'inclusion': 'available', 'type': ['null', 'boolean']}}}, 'metadata': [{'breadcrumb': [], 'metadata': {'row-count': 2000, 'table-key-properties': ['id'], 'database-name': 'example_db', 'selected-by-default': False, 'is-view': False, 'selected': True, 'replication-method': 'FULL_TABLE'}}, {'breadcrumb': ['properties', 'id'], 'metadata': {'sql-datatype': 'int(11)', 'selected-by-default': True, 'selected': True}}, {'breadcrumb': ['properties', 'name'], 'metadata': {'sql-datatype': 'varchar(255)', 'selected-by-default': True, 'selected': True}}, {'breadcrumb': ['properties', 'likes_getting_petted'], 'metadata': {'sql-datatype': 'tinyint(1)', 'selected-by-default': True, 'selected': True}}], 'stream': 'animals'}]}
+{"type": "STATE", "value": {"currently_syncing": "example_db-animals"}}
+{"type": "SCHEMA", "stream": "animals", "schema": {"properties": {"name": {"inclusion": "available", "maxLength": 255, "type": ["null", "string"]}, "id": {"inclusion": "available", "minimum": -2147483648, "maximum": 2147483647, "type": ["null", "integer"]}, "likes_getting_petted": {"inclusion": "available", "minimum": -128, "maximum": 127, "type": ["null", "integer"]}}, "type": "object"}, "key_properties": ["id"]}
+{"type": "ACTIVATE_VERSION", "stream": "animals", "version": 1713768569189}
+{"type": "RECORD", "stream": "animals", "record": {"name": "aardvark", "id": 1, "likes_getting_petted": 0}, "version": 1713768569189, "time_extracted": "2024-04-22T06:49:29.221681Z"}
+{"type": "RECORD", "stream": "animals", "record": {"name": "bear", "id": 2, "likes_getting_petted": 0}, "version": 1713768569189, "time_extracted": "2024-04-22T06:49:29.221681Z"}
+{"type": "RECORD", "stream": "animals", "record": {"name": "cow", "id": 3, "likes_getting_petted": 1}, "version": 1713768569189, "time_extracted": "2024-04-22T06:49:29.221681Z"}
+{"type": "STATE", "value": {"currently_syncing": "example_db-animals", "bookmarks": {"example_db-animals": {"max_pk_values": {"id": 3}, "last_pk_fetched": {"id": 3}}}}}
+{"type": "ACTIVATE_VERSION", "stream": "animals", "version": 1713768569189}
+{"type": "STATE", "value": {"currently_syncing": "example_db-animals", "bookmarks": {"example_db-animals": {"initial_full_table_complete": true}}}}
+{"type": "STATE", "value": {"currently_syncing": null, "bookmarks": {"example_db-animals": {"initial_full_table_complete": true}}}}
 
+```
 ## Set up the PostgreSQL target
 ``` cmd
 python3 -m venv postgresql_target
@@ -134,21 +148,7 @@ print(result.stdout)
 ```
 ***to get the x509 certificate, openssl is required to generate the certificate because the mysql inbuilt certificate has been depricated***
 
-# Sample output
-``` json
-{'streams': [{'tap_stream_id': 'example_db-animals', 'table_name': 'animals', 'schema': {'type': 'object', 'properties': {'name': {'inclusion': 'available', 'type': ['null', 'string'], 'maxLength': 255}, 'id': {'inclusion': 'automatic', 'minimum': -2147483648, 'maximum': 2147483647, 'type': ['null', 'integer']}, 'likes_getting_petted': {'inclusion': 'available', 'type': ['null', 'boolean']}}}, 'metadata': [{'breadcrumb': [], 'metadata': {'row-count': 2000, 'table-key-properties': ['id'], 'database-name': 'example_db', 'selected-by-default': False, 'is-view': False, 'selected': True, 'replication-method': 'FULL_TABLE'}}, {'breadcrumb': ['properties', 'id'], 'metadata': {'sql-datatype': 'int(11)', 'selected-by-default': True, 'selected': True}}, {'breadcrumb': ['properties', 'name'], 'metadata': {'sql-datatype': 'varchar(255)', 'selected-by-default': True, 'selected': True}}, {'breadcrumb': ['properties', 'likes_getting_petted'], 'metadata': {'sql-datatype': 'tinyint(1)', 'selected-by-default': True, 'selected': True}}], 'stream': 'animals'}]}
-{"type": "STATE", "value": {"currently_syncing": "example_db-animals"}}
-{"type": "SCHEMA", "stream": "animals", "schema": {"properties": {"name": {"inclusion": "available", "maxLength": 255, "type": ["null", "string"]}, "id": {"inclusion": "available", "minimum": -2147483648, "maximum": 2147483647, "type": ["null", "integer"]}, "likes_getting_petted": {"inclusion": "available", "minimum": -128, "maximum": 127, "type": ["null", "integer"]}}, "type": "object"}, "key_properties": ["id"]}
-{"type": "ACTIVATE_VERSION", "stream": "animals", "version": 1713768569189}
-{"type": "RECORD", "stream": "animals", "record": {"name": "aardvark", "id": 1, "likes_getting_petted": 0}, "version": 1713768569189, "time_extracted": "2024-04-22T06:49:29.221681Z"}
-{"type": "RECORD", "stream": "animals", "record": {"name": "bear", "id": 2, "likes_getting_petted": 0}, "version": 1713768569189, "time_extracted": "2024-04-22T06:49:29.221681Z"}
-{"type": "RECORD", "stream": "animals", "record": {"name": "cow", "id": 3, "likes_getting_petted": 1}, "version": 1713768569189, "time_extracted": "2024-04-22T06:49:29.221681Z"}
-{"type": "STATE", "value": {"currently_syncing": "example_db-animals", "bookmarks": {"example_db-animals": {"max_pk_values": {"id": 3}, "last_pk_fetched": {"id": 3}}}}}
-{"type": "ACTIVATE_VERSION", "stream": "animals", "version": 1713768569189}
-{"type": "STATE", "value": {"currently_syncing": "example_db-animals", "bookmarks": {"example_db-animals": {"initial_full_table_complete": true}}}}
-{"type": "STATE", "value": {"currently_syncing": null, "bookmarks": {"example_db-animals": {"initial_full_table_complete": true}}}}
 
-```
 # important links
 ``` url
 https://blog.panoply.io/etl-with-singer-a-tutorial
