@@ -84,15 +84,43 @@
   
   }
 ```
-# commands
+# Cssommands
 
+## Create a virtual environment for your tap
 ``` cmd
-tap-mysql -c config.json --properties properties.json
+python3 -m venv mysql_tap
+```
+## Activate your virtual environment
+``` cmd
+source mysql_tap/bin/activate
+```
+## Install the Singer package for the MySQL tap
+``` cmd
+pip install tap-mysql
+```
+## Run the tap in discovery mode to create a catalog.json file
+``` cmd
+tap-mysql --config config.json --discover > catalog.json
+```
+## Run the tap
+``` cmd
+tap-mysql --config config.json --properties properties.json
 ```
 
+## Set up the PostgreSQL target
 ``` cmd
-mysql_tap/bin/tap-mysql -c mysql_tap/bin/config.json --properties mysql_tap/bin/properties.json | postgresql_target/bin/target-postgres -c postgresql_target/bin/config.json >> state.json
+python3 -m venv postgresql_target
 ```
+``` cmd
+source postgresql_target/bin/activate
+```
+``` cmd
+pip install target-postgres
+```
+## Transfer data from MySQL to PostgreSQL database
+``` cmd
+tap-mysql --config mysql_tap/bin/config.json --properties mysql_tap/bin/properties.json | postgresql_target/bin/target-postgres -c postgresql_target/bin/config.json >> state.json
+``` 
 
 
 # note 
