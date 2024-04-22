@@ -61,6 +61,9 @@
     ]
   }
 ```
+* The **database** name is **app**
+* The table name is **a**
+* The table a has one column named **id**  
 
 ## config.json for postgre sql
 
