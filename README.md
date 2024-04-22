@@ -132,7 +132,7 @@ result = subprocess.run(cmd, capture_output=True, text=True)
 print(result.stdout)
 # please modify further to and use result.stdout 
 ```
-***to get the x509 certificate this open ssl is required because the mysql inbuilt certificate has been depricated***
+***to get the x509 certificate, openssl is required to generate the certificate because the mysql inbuilt certificate has been depricated***
 
 
 # important links
