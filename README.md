@@ -1,6 +1,7 @@
 # introduction
 * *Here i am trying to send the content of the database from mysql to postgre sql using singer ETL took*
- ![Alt text](img_!.webp "Title") 
+![image](https://github.com/Rahul-262001/ETL/assets/107297509/f28cd643-5b8d-4ce4-9a78-6fcfa906d8e0)
+
 # json files
 
 ## config.json for sql tap
