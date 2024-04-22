@@ -1,4 +1,4 @@
-# introduction
+# Introduction
 * *Here i am trying to send the content of the database from mysql to postgre sql using singer ETL took*
 ![image](https://github.com/Rahul-262001/ETL/blob/main/image.png)
 
@@ -170,7 +170,7 @@ https://blog.panoply.io/etl-with-singer-a-tutorial
 ``` url
 https://meltano.com/
 ```
-
+> ***Note*** meltano is better than singer 
 ``` url
 https://docs.meltano.com/getting-started/part1
 ```
