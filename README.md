@@ -15,6 +15,7 @@
   }
 ```
 ## properties.json for sql tap
+* properties.json must be a dictionary not a list in the *** official documentation of singer there they have given a list but in actual it is a dictionary ***
 ``` json
 {
     "streams": [
