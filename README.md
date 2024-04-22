@@ -1,6 +1,6 @@
 # introduction
 * *Here i am trying to send the content of the database from mysql to postgre sql using singer ETL took*
-![image](https://github.com/Rahul-262001/ETL/assets/107297509/f28cd643-5b8d-4ce4-9a78-6fcfa906d8e0)
+![image](https://github.com/Rahul-262001/ETL/blob/main/image.png)
 
 # json files
 
