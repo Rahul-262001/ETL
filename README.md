@@ -125,6 +125,14 @@ tap-mysql --config mysql_tap/bin/config.json --properties mysql_tap/bin/properti
 
 # note 
 ## python venv is compulsary for this to work
+``` python
+# to use the above in python
+cmd = ["tap-mysql", "--config", "mysql_config.json", "--properties", "properties.json"]
+result = subprocess.run(cmd, capture_output=True, text=True)
+print(result.stdout)
+# please modify further to and use result.stdout 
+```
+***to get the x509 certificate this open ssl is required because the mysql inbuilt certificate has been depricated***
 
 
 # important links
