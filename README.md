@@ -148,8 +148,9 @@ tap-mysql --config mysql_tap/bin/config.json --properties mysql_tap/bin/properti
 ``` 
 
 
-# note 
-## python venv is compulsary for this to work
+> **note** ## python venv is compulsary for this to work
+
+# Python code
 ``` python
 # to use the above in python
 cmd = ["tap-mysql", "--config", "mysql_config.json", "--properties", "properties.json"]
