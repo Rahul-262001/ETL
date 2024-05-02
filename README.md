@@ -1,5 +1,3 @@
-Sure, here's the content converted into markdown with improved grammar:
-
 # Extracting Data Using Singer ETL
 
 This guide demonstrates how to extract data from MySQL using `tap-mysql` and load it into `target-jsonl`.
