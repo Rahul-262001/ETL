@@ -148,7 +148,7 @@ Now, you have successfully extracted data from MySQL using `tap-mysql`
     - A file will be created with the same name as the table name. 
 7. **To convert the output as a data frame**
     - This is just an example just to give you an idea.
-    ```Python
+    ``` python
     import pandas as pd
     import json
     data = []
