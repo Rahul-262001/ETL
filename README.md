@@ -1,4 +1,166 @@
-# Introduction
+Sure, here's the content converted into markdown with improved grammar:
+
+# Extracting Data Using Singer ETL
+
+This guide demonstrates how to extract data from MySQL using `tap-mysql` and load it into `target-jsonl`.
+
+## Steps
+
+1. **Enable Python Virtual Environment (venv)**
+    - Here's a workaround to enable Python venv without administrative access:
+        - Create a new virtual environment: `python3 -m venv <file_name>`
+        - Navigate into the file and go to the Script Directory
+        - Activate the virtual environment: `.\activate.bat`
+    - Now, the virtual environment is active.
+
+2. **Install tap-mysql and target-jsonl**
+    - Use pip to install the necessary packages: `pip install tap-mysql target-jsonl`
+
+3. **Prepare Configuration Files**
+    - `tap-mysql` requires two input files: `config.json` and `properties.json`.
+
+    - `config.json`:
+        ```json
+        {
+            "host": "127.0.0.1",
+            "port": "3306",
+            "user": "root",
+            "password": "root"
+        }
+        ```
+
+    - `properties.json`:
+```json
+{
+    "streams": [
+        {
+            "tap_stream_id": "sakila-actor_info",
+            "table_name": "actor_info",
+            "schema": {
+              "properties": {
+                "actor_id": {
+                  "inclusion": "available",
+                  "minimum": 0,
+                  "maximum": 65535,
+                  "type": [
+                    "null",
+                    "integer"
+                  ]
+                },
+                "first_name": {
+                  "inclusion": "available",
+                  "maxLength": 45,
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "last_name": {
+                  "inclusion": "available",
+                  "maxLength": 45,
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "film_info": {
+                  "inclusion": "available",
+                  "maxLength": 65535,
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                }
+              },
+              "type": "object"
+            },
+            "stream": "actor_info",
+            "metadata": [
+              {
+                "breadcrumb": [],
+                "metadata": {
+                  "selected": true,
+                  "replication-method": "FULL_TABLE",
+                  "selected-by-default": false,
+                  "database-name": "sakila",
+                  "is-view": true
+                }
+              },
+              {
+                "breadcrumb": [
+                  "properties",
+                  "actor_id"
+                ],
+                "metadata": {
+                  "selected-by-default": true,
+                  "sql-datatype": "smallint unsigned"
+                }
+              },
+              {
+                "breadcrumb": [
+                  "properties",
+                  "first_name"
+                ],
+                "metadata": {
+                  "selected-by-default": true,
+                  "sql-datatype": "varchar(45)"
+                }
+              },
+              {
+                "breadcrumb": [
+                  "properties",
+                  "last_name"
+                ],
+                "metadata": {
+                  "selected-by-default": true,
+                  "sql-datatype": "varchar(45)"
+                }
+              },
+              {
+                "breadcrumb": [
+                  "properties",
+                  "film_info"
+                ],
+                "metadata": {
+                  "selected-by-default": true,
+                  "sql-datatype": "text"
+                }
+              }
+            ]
+          }
+    ]
+}
+
+```
+
+4. **Generate properties.json**
+    - Run the following command in discover mode: `tap-mysql --config config.json --discover > catalog.json`
+    - In the output, select the table by adding the following lines:
+        - `"selected": true`
+        - `"replication-method": "FULL_TABLE"`
+
+5. **Run tap-mysql**
+    - Run the following command: `tap-mysql --config config.json --catalog properties.json`
+
+Now, you have successfully extracted data from MySQL using `tap-mysql` 
+6. **Send the data to jsonl target**
+    - Finally, run the following command: `tap-mysql --config config.json --catalog properties.json | target-jsonl` and Thats it.
+    - A file will be created with the same name as the table name. 
+7. **To convert the output as a data frame**
+    - This is just an example just to give you an idea.
+    ```Python
+    import pandas as pd
+    import json
+    data = []
+    with open("<the file created after following the above step>.jsonl","r") as f:
+    for line in f:
+        data.append(json.loads(line))
+    df = pd.DataFrame(data)
+    print(df.columns)
+    ```
+
+
+# Another approch
 * *Here i am trying to send the content of the database from mysql to postgre sql using singer ETL took*
 ![image](https://github.com/Rahul-262001/ETL/blob/main/image.png)
 
