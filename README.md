@@ -143,6 +143,7 @@ This guide demonstrates how to extract data from MySQL using `tap-mysql` and loa
     - Run the following command: `tap-mysql --config config.json --catalog properties.json`
 
 Now, you have successfully extracted data from MySQL using `tap-mysql` 
+
 6. **Send the data to jsonl target**
     - Finally, run the following command: `tap-mysql --config config.json --catalog properties.json | target-jsonl` and Thats it.
     - A file will be created with the same name as the table name. 
